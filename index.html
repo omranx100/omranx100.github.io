@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ساهل — تحميل التطبيق</title>
+<meta name="description" content="ساهل: توليد وطباعة كروت هوتسبوت ميكروتيك ومراقبة الراوتر من هاتفك.">
+<meta property="og:title" content="ساهل — تطبيق كروت ميكروتيك">
+<meta property="og:description" content="ولّد واطبع كروت الهوتسبوت وراقب راوترك من هاتفك.">
+<meta property="og:image" content="https://omranx100.github.io/icon.png">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f8fc;
+    --surface: #ffffff;
+    --text: #0f1b2d;
+    --muted: #5b6b80;
+    --line: #e1e8f1;
+    --brand: #2f5fb3;
+    --brand-2: #7cc3e6;
+    --on-brand: #ffffff;
+    --chip: #e8f0fb;
+    --wa: #1faa59;
+    --fb: #1877f2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1220;
+      --surface: #121b2c;
+      --text: #e6edf7;
+      --muted: #93a3b8;
+      --line: #22304a;
+      --brand: #5b8ee0;
+      --chip: #182640;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.7 "Tajawal", system-ui, sans-serif;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--brand-2), #2a55ad);
+    color: var(--on-brand);
+    padding: 56px 0 88px;
+    text-align: center;
+  }
+  .hero img {
+    width: 112px; height: 112px; border-radius: 28px;
+    box-shadow: 0 12px 32px rgba(10, 30, 70, .35);
+  }
+  .hero h1 { margin: 18px 0 4px; font-size: 40px; font-weight: 800; letter-spacing: .5px; }
+  .hero p { margin: 0 auto; max-width: 520px; font-size: 18px; opacity: .92; }
+
+  /* Download card */
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 20px; padding: 24px;
+  }
+  .download {
+    margin-top: -56px; text-align: center;
+    box-shadow: 0 16px 40px rgba(15, 40, 90, .12);
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px 28px; border-radius: 14px; text-decoration: none;
+    font-weight: 700; font-size: 18px; border: 0; cursor: pointer;
+  }
+  .btn svg { width: 22px; height: 22px; flex: none; }
+  .btn-primary { background: var(--brand); color: var(--on-brand); width: 100%; max-width: 380px; }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .meta { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
+  .meta span + span::before { content: "·"; margin: 0 8px; }
+
+  h2 { font-size: 22px; margin: 44px 0 14px; }
+
+  /* Steps */
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: s; }
+  .steps li {
+    counter-increment: s; display: flex; gap: 14px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px;
+  }
+  .steps li::before {
+    content: counter(s); flex: none; width: 32px; height: 32px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--chip); color: var(--brand); font-weight: 800;
+  }
+  .steps b { display: block; }
+  .steps small { color: var(--muted); font-size: 14px; }
+
+  /* Features */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .feat { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .feat .ic {
+    width: 40px; height: 40px; border-radius: 12px; background: var(--chip); color: var(--brand);
+    display: grid; place-items: center; margin-bottom: 10px;
+  }
+  .feat .ic svg { width: 22px; height: 22px; }
+  .feat b { display: block; margin-bottom: 2px; }
+  .feat p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* Contact */
+  .contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .btn-wa { background: var(--wa); color: #fff; }
+  .btn-fb { background: var(--fb); color: #fff; }
+
+  footer { margin: 48px 0 32px; text-align: center; color: var(--muted); font-size: 13px; }
+  footer code {
+    display: block; margin-top: 6px; direction: ltr; font-size: 11px;
+    word-break: break-all; opacity: .8;
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 40px 0 80px; }
+    .hero h1 { font-size: 34px; }
+    .card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img src="icon.png" alt="أيقونة تطبيق ساهل" width="112" height="112">
+    <h1>ساهل</h1>
+    <p>ولّد واطبع كروت هوتسبوت ميكروتيك وراقب راوترك — من هاتفك مباشرة.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card download">
+    <a class="btn btn-primary" href="sahel.apk" download="sahel.apk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      تحميل التطبيق لأندرويد
+    </a>
+    <p class="meta"><span>الإصدار 1.0.8</span><span>34 ميغابايت</span><span>أندرويد 7.0 فأحدث</span></p>
+  </section>
+
+  <h2>طريقة التثبيت</h2>
+  <ol class="steps">
+    <li><div><b>حمّل الملف</b><small>اضغط زر التحميل أعلاه وانتظر حتى يكتمل.</small></div></li>
+    <li><div><b>افتح الملف sahel.apk</b><small>من الإشعارات أو من مجلد التنزيلات.</small></div></li>
+    <li><div><b>اسمح بالتثبيت من هذا المصدر</b><small>إذا طلب الهاتف ذلك: الإعدادات ← السماح من هذا المصدر، ثم ارجع واضغط «تثبيت».</small></div></li>
+  </ol>
+
+  <h2>المميزات</h2>
+  <div class="grid">
+    <div class="feat">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+      <b>توليد الكروت وطباعتها</b>
+      <p>مئات الكروت دفعة واحدة بحدود وقت وبيانات وصلاحية، وطباعة PDF بالعربية.</p>
+    </div>
+    <div class="feat">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+      <b>لوحة تحكم حية</b>
+      <p>المعالج، المستخدمون النشطون، السرعة والاستهلاك لحظة بلحظة.</p>
+    </div>
+    <div class="feat">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+      <b>إدارة عن بعد</b>
+      <p>تحكّم في الراوتر من أي مكان عبر VPN، مع التبديل بين المحلي والبعيد بضغطة.</p>
+    </div>
+    <div class="feat">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+      <b>مراقبة وإشعارات</b>
+      <p>مراقبة في الخلفية، وإشعارات بالتحديثات، وإرسال الشكاوى من داخل التطبيق.</p>
+    </div>
+  </div>
+
+  <h2>للاشتراك والدعم</h2>
+  <div class="contact">
+    <a class="btn btn-wa" href="https://wa.me/249963623682?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D8%B3%D8%A7%D9%87%D9%84" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4 5.1 5.1 0 0 0 3.2.7 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+      واتساب <span dir="ltr">+249963623682</span>
+    </a>
+    <a class="btn btn-fb" href="https://www.facebook.com/omranx100" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+      فيسبوك
+    </a>
+  </div>
+
+  <footer>
+    © ساهل — جميع الحقوق محفوظة
+    <code>SHA-256: 60f01702b18976455b3e4943e608ab4ab54ffca121c89606196a1f9984f25c28</code>
+  </footer>
+</main>
+
+</body>
+</html>
